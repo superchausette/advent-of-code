@@ -1,31 +1,16 @@
 use std::env;
-use std::io::{self, BufRead};
-use std::fs::File;
-use std::path::Path;
+use std::fs;
 use std::process;
 
 static EXPECTED_VALUE: i32 = 2020;
 
 fn parse_file(filename: &str) -> Vec<i32> {
     println!("Parsing file {}", filename);
-    let mut ret : Vec<i32> = Vec::new();
-    if let Ok(lines) = read_lines(filename) {
-        for line in lines {
-            if let Ok(ip) = line {
-                match ip.parse::<i32>() {
-                    Ok(number) => ret.push(number),
-                    Err(..) =>  {}
-                };
-            }
-        }
-    }
-    ret
-}
-
-fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
-where P: AsRef<Path>, {
-    let file = File::open(filename)?;
-    Ok(io::BufReader::new(file).lines())
+    let file_content = fs::read_to_string(filename).expect("Could not load file");
+    file_content
+        .split('\n')
+        .filter_map(|s | s.parse::<i32>().ok())
+        .collect()
 }
 
 fn part1(sorted_numbers: &Vec<i32>) {
