@@ -9,7 +9,7 @@ fn parse_file(filename: &str) -> Vec<i32> {
     let file_content = fs::read_to_string(filename).expect("Could not load file");
     file_content
         .split('\n')
-        .filter_map(|s | s.parse::<i32>().ok())
+        .filter_map(|s| s.parse::<i32>().ok())
         .collect()
 }
 
@@ -22,20 +22,24 @@ fn part1(sorted_numbers: &Vec<i32>) {
             }
             // Do not compute multiple time the same operation
             if first_idx > second_idx {
-                continue
+                continue;
             }
             if first_value + second_value > EXPECTED_VALUE {
                 break 'second;
             }
             if first_value + second_value < EXPECTED_VALUE {
-                continue
+                continue;
             }
-            println!("[PART1]: Value found: {} and {}, the result is: {}", first_value, second_value, first_value*second_value);
+            println!(
+                "[PART1]: Value found: {} and {}, the result is: {}",
+                first_value,
+                second_value,
+                first_value * second_value
+            );
             break 'first;
         }
     }
 }
-
 
 fn part2(sorted_numbers: &Vec<i32>) {
     'first: for (first_idx, first_value) in sorted_numbers.iter().enumerate() {
@@ -58,7 +62,13 @@ fn part2(sorted_numbers: &Vec<i32>) {
                 if first_value + second_value + third_value < EXPECTED_VALUE {
                     continue;
                 }
-                println!("[PART2]: Value found: {}, {} and {}, the result is: {}", first_value, second_value, third_value, first_value*second_value*third_value);
+                println!(
+                    "[PART2]: Value found: {}, {} and {}, the result is: {}",
+                    first_value,
+                    second_value,
+                    third_value,
+                    first_value * second_value * third_value
+                );
                 break 'first;
             }
         }
