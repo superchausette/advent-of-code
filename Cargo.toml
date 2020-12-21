@@ -11,37 +11,41 @@ lazy_static = "1"
 regex = "1"
 
 [[bin]]
-name = "d1"
-path = "1/main.rs"
+name = "d01"
+path = "d01.rs"
 
 [[bin]]
-name = "d2"
-path = "2/main.rs"
+name = "d02"
+path = "d02.rs"
 
 [[bin]]
-name = "d3"
-path = "3/main.rs"
+name = "d03"
+path = "d03.rs"
 
 [[bin]]
-name = "d4"
-path = "4/main.rs"
+name = "d04"
+path = "d04.rs"
 
 [[bin]]
-name = "d5"
-path = "5/main.rs"
+name = "d05"
+path = "d05.rs"
 
 [[bin]]
-name = "d6"
-path = "6/main.rs"
+name = "d06"
+path = "d06.rs"
 
 [[bin]]
-name = "d7"
-path = "7/main.rs"
+name = "d07"
+path = "d07.rs"
 
 [[bin]]
-name = "d8"
-path = "8/main.rs"
+name = "d08"
+path = "d08.rs"
 
 [[bin]]
-name = "d9"
-path = "9/main.rs"
+name = "d09"
+path = "d09.rs"
+
+[[bin]]
+name = "d10"
+path = "d10.rs"
